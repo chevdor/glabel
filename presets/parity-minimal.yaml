@@ -1,0 +1,46 @@
+---
+name: Parity Minimal
+description: A minimum set of labels for Parity projects
+labels:
+  - name: A0-pleasereview
+    description: A change that can be reviewed. If you have a moment, search for those and review them!
+    color: DA426A
+  - name: B0-silent
+    description: Shhhh, this change will not show up in the release notes.
+    color: 8D9C9D
+  - name: B1-releasenotes
+    description: This change needs to show up in the release notes.
+    color: 16EA0C
+  - name: B7-runtimenoteworthy
+    description: This is a runtime related change and will show up in the release notes.
+    color: 2200D7
+  - name: C1-low 📌
+    description: This is a low priority change. Update at your convenience.
+    color: ED5135
+  - name: C3-medium 📣
+    description: This is a medium priority change. Update in a timely manner.
+    color: CC7C0C
+  - name: C7-high ❗️
+    description: This is a HIGH priority change. Update as soon as possible to get that change.
+    color: 6B0824
+  - name: C9-critical ‼️
+    description: Drop everything, you MUST update to get that change.
+    color: AF3303
+  - name: D2-breaksapi
+    description: This change introduce a breaking change.
+    color: E1F347
+  - name: D3-trivial 🧸
+    description: This change is trivial.
+    color: 617C5D
+  - name: E4-newhostfunctions
+    description: This change introduces a new host function and clients will have to be updated asap and especially before the next runtime upgrade.
+    color: D9523B
+  - name: E5-breaksapi
+    description:
+    color: 0CD7D6
+  - name: E7-breaksauthoring
+    description:
+    color: CD3C22
+  - name: E8-breakseverything
+    description:
+    color: FAC6DA
