@@ -1,8 +1,12 @@
 [package]
-description = "to come"
+authors = ["chevdor <chevdor@gmail.com>", "Wilfried Kopp <wilfried@parity.io"]
+description = "A cli utility written in Rust that allows fetching all the labels of a project, save those as a YAML file that you can easily edit or save as backup and apply a saved preset to new repositories."
 edition = "2021"
+homepage = "https://github.com/chevdor/glabel"
+keywords = ["cli", "rust", "github", "label", "productivity", "chevdor"]
 license = "MIT"
 name = "glabel"
+readme = "README.md"
 repository = "https://github.com/chevdor/glabel"
 version = "0.0.2"
 
@@ -15,9 +19,9 @@ futures = "0.3.18"
 glabellib = {path = "../lib"}
 hubcaps = "0.6.2"
 log = "0.4"
-tokio = {version = "0.2", features = ["full"]}
 serde = "1.0"
 serde_yaml = {version = "0.8", optional = false}
+tokio = {version = "0.2", features = ["full"]}
 
 [profile.release]
 codegen-units = 1

@@ -1,8 +1,8 @@
 glabel-apply 0.0.2
 
+chevdor <chevdor@gmail.com>:Wilfried Kopp <wilfried@parity.io
 
-
-Apply a label set
+Apply a label set from a given file
 
 USAGE:
     glabel apply [FLAGS] --token <TOKEN> <REPOSITORY> <INPUT>
@@ -13,7 +13,6 @@ ARGS:
 
 FLAGS:
     -h, --help       Print help information
-    -j, --json       Output as json
     -r, --replace    By default, existing labels will NOT be updated. If you set this flag to true,
                      they will. Beware, there is no automatic backup so it could be a good idea to
                      run the `get` command first and make a backup

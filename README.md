@@ -14,29 +14,27 @@ A utility to import (=`get`) and export (=`apply`) Github labels.
 ### Help
 
     USAGE:
-        glabel [FLAGS] <SUBCOMMAND>
+        glabel <SUBCOMMAND>
 
     FLAGS:
         -h, --help       Print help information
-        -j, --json       Output as json
         -V, --version    Print version information
 
     SUBCOMMANDS:
-        apply    Apply a label set
-        get      Get/download labels
+        apply    Apply a label set from a given file
+        get      Get/download labels from a given repository
         help     Print this message or the help of the given subcommand(s)
 
 ### Get
 
     USAGE:
-        glabel get [FLAGS] [OPTIONS] <REPOSITORY>
+        glabel get [OPTIONS] <REPOSITORY>
 
     ARGS:
         <REPOSITORY>    The repo string for now in the form owner/repo such as chevdor/foobar
 
     FLAGS:
         -h, --help       Print help information
-        -j, --json       Output as json
         -V, --version    Print version information
 
     OPTIONS:
@@ -99,7 +97,6 @@ However, if you provide an output file, the yaml will be stored as:
 
     FLAGS:
         -h, --help       Print help information
-        -j, --json       Output as json
         -r, --replace    By default, existing labels will NOT be updated. If you set this flag to true,
                          they will. Beware, there is no automatic backup so it could be a good idea to
                          run the `get` command first and make a backup

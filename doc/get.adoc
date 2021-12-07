@@ -1,18 +1,17 @@
 glabel-get 0.0.2
 
+chevdor <chevdor@gmail.com>:Wilfried Kopp <wilfried@parity.io
 
-
-Get/download labels
+Get/download labels from a given repository
 
 USAGE:
-    glabel get [FLAGS] [OPTIONS] <REPOSITORY>
+    glabel get [OPTIONS] <REPOSITORY>
 
 ARGS:
     <REPOSITORY>    The repo string for now in the form owner/repo such as chevdor/foobar
 
 FLAGS:
     -h, --help       Print help information
-    -j, --json       Output as json
     -V, --version    Print version information
 
 OPTIONS:

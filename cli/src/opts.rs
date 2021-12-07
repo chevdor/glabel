@@ -6,9 +6,9 @@ use std::path::PathBuf;
 #[clap(version = crate_version!(), author = crate_authors!())]
 #[clap(setting = AppSettings::ColoredHelp)]
 pub struct Opts {
-	/// Output as json
-	#[clap(short, long, global = true)]
-	pub json: bool,
+	// /// Output as json
+	// #[clap(short, long, global = true)]
+	// pub json: bool,
 
 	#[clap(subcommand)]
 	pub subcmd: SubCommand,
@@ -25,7 +25,7 @@ pub enum SubCommand {
 	Apply(ApplyOpts),
 }
 
-/// Get/download labels
+/// Get/download labels from a given repository.
 #[derive(Debug, Clap)]
 #[clap(setting = AppSettings::ColoredHelp)]
 pub struct GetOpts {
@@ -38,7 +38,7 @@ pub struct GetOpts {
 	pub output: Option<PathBuf>,
 }
 
-/// Apply a label set
+/// Apply a label set from a given file.
 #[derive(Debug, Clap)]
 #[clap(setting = AppSettings::ColoredHelp)]
 pub struct ApplyOpts {

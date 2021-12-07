@@ -1,18 +1,17 @@
 glabel 0.0.2
 
-
+chevdor <chevdor@gmail.com>:Wilfried Kopp <wilfried@parity.io
 
 You can find all available commands below
 
 USAGE:
-    glabel [FLAGS] <SUBCOMMAND>
+    glabel <SUBCOMMAND>
 
 FLAGS:
     -h, --help       Print help information
-    -j, --json       Output as json
     -V, --version    Print version information
 
 SUBCOMMANDS:
-    apply    Apply a label set
-    get      Get/download labels
+    apply    Apply a label set from a given file
+    get      Get/download labels from a given repository
     help     Print this message or the help of the given subcommand(s)
