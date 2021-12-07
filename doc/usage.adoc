@@ -20,6 +20,13 @@ However, if you provide an output file, the yaml will be stored as:
 include::sample_yaml.yaml[]
 ----
 
+
+=== Apply
+----
+include::apply.adoc[lines=7..]
+----
+
+
 === Documentation
 
 If you feel fancy (and lazy), you may even generate a documentation from your tags using https://github.com/chevdor/tera-cli[tera-cli].

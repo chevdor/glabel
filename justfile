@@ -16,11 +16,16 @@ test_all:
 
 # Generate usage samples
 _usage:
-    cargo run -q -- --help > doc/help.adoc
-    cargo run -q -- get --help > doc/get.adoc
-    cargo run -q -- get chevdor/glabel > doc/sample_terminal.txt
-    cargo run -q -- get chevdor/glabel -o doc/sample_yaml.yaml
-    tera --template templates/doc.md.tera doc/sample_yaml.yaml > doc/sample_doc.md
+	#!/usr/bin/env bash
+	cargo run -q -- --help > doc/help.adoc
+	cargo run -q -- get --help > doc/get.adoc
+	SAVE=$TOKEN
+	export TOKEN="<your admin token>"
+	cargo run -q -- apply --help > doc/apply.adoc
+	export TOKEN=$SAVE
+	cargo run -q -- get chevdor/glabel > doc/sample_terminal.txt
+	cargo run -q -- get chevdor/glabel -o doc/sample_yaml.yaml
+	tera --template templates/doc.md.tera doc/sample_yaml.yaml > doc/sample_doc.md
 
 # Generate documentation
 doc: _usage

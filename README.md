@@ -17,8 +17,9 @@ Utility to import/export Github labels.
         -V, --version    Print version information
 
     SUBCOMMANDS:
-        get     Get/download labels
-        help    Print this message or the help of the given subcommand(s)
+        apply    Apply a label set
+        get      Get/download labels
+        help     Print this message or the help of the given subcommand(s)
 
 ### Get
 
@@ -81,6 +82,27 @@ However, if you provide an output file, the yaml will be stored as:
       - name: wontfix
         description: This will not be worked on
         color: ffffff
+
+### Apply
+
+    USAGE:
+        glabel apply [FLAGS] --token <TOKEN> <REPOSITORY> <INPUT>
+
+    ARGS:
+        <REPOSITORY>    The repo string for now in the form owner/repo such as chevdor/foobar
+        <INPUT>         The filename where your set is stored
+
+    FLAGS:
+        -h, --help       Print help information
+        -j, --json       Output as json
+        -V, --version    Print version information
+
+    OPTIONS:
+        -t, --token <TOKEN>    If you follow good security practices, your GITHUB_TOKEN should not have
+                               write access to your repos. Here since we need to write labels, we use
+                               another variable for the token with write access. It is highly
+                               recommended to pass this as an Environment variable [env: TOKEN=<your
+                               admin token>]
 
 ### Documentation
 
