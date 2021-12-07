@@ -1,0 +1,19 @@
+glabel-get 0.0.1
+
+
+
+Get/download labels
+
+USAGE:
+    glabel get [FLAGS] [OPTIONS] <REPOSITORY>
+
+ARGS:
+    <REPOSITORY>    The repo string for now in the form owner/repo such as chevdor/foobar
+
+FLAGS:
+    -h, --help       Print help information
+    -j, --json       Output as json
+    -V, --version    Print version information
+
+OPTIONS:
+    -o, --output <OUTPUT>    The output filename

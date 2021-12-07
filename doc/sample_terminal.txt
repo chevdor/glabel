@@ -1,0 +1,9 @@
+ - bug                     	[d73a4a]: Something isn't working
+ - documentation           	[0075ca]: Improvements or additions to documentation
+ - duplicate               	[cfd3d7]: This issue or pull request already exists
+ - enhancement             	[a2eeef]: New feature or request
+ - good first issue        	[7057ff]: Good for newcomers
+ - help wanted             	[008672]: Extra attention is needed
+ - invalid                 	[e4e669]: This doesn't seem right
+ - question                	[d876e3]: Further information is requested
+ - wontfix                 	[ffffff]: This will not be worked on

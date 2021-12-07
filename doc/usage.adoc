@@ -1,0 +1,21 @@
+
+=== Help
+----
+include::help.adoc[lines=7..]
+----
+
+=== Get
+----
+include::get.adoc[lines=7..]
+----
+
+Without passing the `--output|-o` flags, the labels will be shown in your terminal as:
+
+----
+include::sample_terminal.txt[]
+----
+
+However, if you provide an output file, the yaml will be stored as:
+----
+include::sample_yaml.yml[]
+----
