@@ -17,12 +17,12 @@ impl FromStr for Repo {
 
 #[cfg(test)]
 mod test_repo {
-    use super::*;
+	use super::*;
 
-    #[test]
-    fn test_parse() {
-        let repo = Repo::from_str("chevdor/glabel").unwrap();
-        assert_eq!("chevdor", repo.owner);
-        assert_eq!("glabel", repo.repository);
-    }
+	#[test]
+	fn test_parse() {
+		let repo = Repo::from_str("chevdor/glabel").unwrap();
+		assert_eq!("chevdor", repo.owner);
+		assert_eq!("glabel", repo.repository);
+	}
 }

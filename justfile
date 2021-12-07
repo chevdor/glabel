@@ -49,7 +49,6 @@ check: _clippy _fmt _deny
 bump:
 	cargo workspaces version --no-git-commit
 
-
 # Generate the readme as .md
 md:
     #!/usr/bin/env bash

@@ -20,7 +20,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
 	log::info!("Running {} v{}", crate_name!(), crate_version!());
 
 	let opts: Opts = Opts::parse();
-	let pat = env::var("GITHUB_TOKEN").unwrap_or(String::new());
+	let pat = env::var("GITHUB_TOKEN").unwrap_or_default();
 	log::debug!("PAT: {}", if !pat.is_empty() { "SET" } else { "NOT SET " });
 
 	match opts.subcmd {
@@ -45,7 +45,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
 				let set = Set::new(&get_opts.repository, Some(description), labels);
 				let yml = serde_yaml::to_string(&set).unwrap();
 				let mut file = File::create(file)?;
-				file.write(yml.as_bytes())?;
+				file.write_all(yml.as_bytes())?;
 			} else {
 				labels.iter().for_each(|label| {
 					println!(
@@ -62,7 +62,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
 			log::debug!("apply: {:#?}", apply_opts);
 
 			let repo = Repo::from_str(&apply_opts.repository).unwrap();
-			let token = env::var("GITHUB_TOKEN").unwrap_or(String::new());
+			let token = env::var("GITHUB_TOKEN").unwrap_or_default();
 			log::debug!("TOKEN: {}", if !token.is_empty() { "SET" } else { "NOT SET " });
 
 			let github = Github::new(String::from("glabel"), Credentials::Token(token))?;
@@ -90,8 +90,8 @@ async fn main() -> Result<(), Box<dyn Error>> {
 				log::debug!("processing label = {:?}", label);
 				// TODO: add conversion from glabel label back to hubcaps labels
 				let label_options: LabelOptions = LabelOptions {
-					name: label.name.clone().into(),
-					color: label.color.clone().into(),
+					name: label.name.clone(),
+					color: label.color.clone(),
 					description: label.description.clone().unwrap_or_default(),
 				};
 
