@@ -1,10 +1,10 @@
 use crate::label::Label;
-use serde::Serialize;
+use serde::{Serialize, Deserialize};
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, Deserialize )]
 pub struct Set {
-	name: String,
-	description: Option<String>,
+	pub name: String,
+	pub description: Option<String>,
 
 	pub labels: Vec<Label>,
 }

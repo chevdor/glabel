@@ -1,0 +1,46 @@
+---
+name: chevdor/foobar.rs
+description: Import from chevdor/foobar.rs
+labels:
+  - name: A0-pleasereview
+    description: "A change that can be reviewed."
+    color: DA426A
+  - name: B0-silent
+    description: Shhhh
+    color: 8D9C9D
+  - name: B1-releasenotes
+    description: ""
+    color: 16EA0C
+  - name: B7-runtimenoteworthy
+    description: ""
+    color: 2200D7
+  - name: C1-low 📌
+    description: ""
+    color: ED5135
+  - name: C3-medium 📣
+    description: ""
+    color: CC7C0C
+  - name: C7-high ❗️
+    description: ""
+    color: 6B0824
+  - name: C9-critical ‼️
+    description: ""
+    color: AF3303
+  - name: D2-breaksapi
+    description: ""
+    color: E1F347
+  - name: D3-trivial 🧸
+    description: ""
+    color: 617C5D
+  - name: E4-newhostfunctions
+    description: ""
+    color: D9523B
+  - name: E5-breaksapi
+    description: ""
+    color: 0CD7D6
+  - name: E7-breaksauthoring
+    description: ""
+    color: CD3C22
+  - name: E8-breakseverything
+    description: ""
+    color: FAC6DA

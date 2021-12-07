@@ -1,0 +1,10 @@
+---
+name: minimal
+description: A very small set
+labels:
+  - name: A bug
+    description: Something isn't working
+    color: dd8888
+  - name: Something cool
+    description: New feature or request
+    color: aaeeee
