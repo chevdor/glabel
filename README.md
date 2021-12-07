@@ -81,3 +81,27 @@ However, if you provide an output file, the yaml will be stored as:
       - name: wontfix
         description: This will not be worked on
         color: ffffff
+
+### Documentation
+
+If you feel fancy (and lazy), you may even generate a documentation from your tags using [tera-cli](https://github.com/chevdor/tera-cli).
+
+Using the [template](templates/doc.md.tera) in this repo and the following command:
+
+    tera --template templates/doc.md.tera doc/sample_yaml.yaml
+
+Will generate the following output:
+
+    This is the documentation for your set named `chevdor/glabel`.
+
+    It contains 9 labels:
+
+    - `bug`: *Something isn't working*
+    - `documentation`: *Improvements or additions to documentation*
+    - `duplicate`: *This issue or pull request already exists*
+    - `enhancement`: *New feature or request*
+    - `good first issue`: *Good for newcomers*
+    - `help wanted`: *Extra attention is needed*
+    - `invalid`: *This doesn't seem right*
+    - `question`: *Further information is requested*
+    - `wontfix`: *This will not be worked on*

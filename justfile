@@ -19,7 +19,8 @@ _usage:
     cargo run -q -- --help > doc/help.adoc
     cargo run -q -- get --help > doc/get.adoc
     cargo run -q -- get chevdor/glabel > doc/sample_terminal.txt
-    cargo run -q -- get chevdor/glabel -o doc/sample_yaml.yml
+    cargo run -q -- get chevdor/glabel -o doc/sample_yaml.yaml
+    tera --template templates/doc.md.tera doc/sample_yaml.yaml > doc/sample_doc.md
 
 # Generate documentation
 doc: _usage
@@ -62,7 +63,11 @@ coverage:
 	find . -type f -name '*.profraw' -exec rm '{}' \;
 
 tag:
-    #!/bin/sh
+    #!/usr/bin/env bash
     echo Tagging version v$TAG
     git tag "v$TAG" -f
     git tag | sort -Vr | head
+
+tera:
+    #!/usr/bin/env bash
+    tera --template templates/doc.md.tera doc/sample_yaml.yaml

@@ -8,3 +8,4 @@ Utility to import/export Github labels.
 == Usage
 
 include::doc/usage.adoc[]
+

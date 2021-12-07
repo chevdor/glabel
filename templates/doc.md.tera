@@ -1,0 +1,6 @@
+This is the documentation for your set named `{{ name }}`.
+
+It contains {{ labels | length }} label{{ labels | length | pluralize }}:
+{% for label in labels %}
+- `{{ label.name }}`: *{{ label.description }}*
+{%- endfor %}

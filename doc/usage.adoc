@@ -17,5 +17,20 @@ include::sample_terminal.txt[]
 
 However, if you provide an output file, the yaml will be stored as:
 ----
-include::sample_yaml.yml[]
+include::sample_yaml.yaml[]
+----
+
+=== Documentation
+
+If you feel fancy (and lazy), you may even generate a documentation from your tags using https://github.com/chevdor/tera-cli[tera-cli].
+
+Using the link:templates/doc.md.tera[template] in this repo and the following command:
+----
+tera --template templates/doc.md.tera doc/sample_yaml.yaml
+----
+
+Will generate the following output:
+
+----
+include::sample_doc.md[]
 ----
