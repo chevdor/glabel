@@ -1,0 +1,253 @@
+---
+name: paritytech/polkadot
+description: Import from paritytech/polkadot
+labels:
+  - name: A0-pleasereview
+    description: ~
+    color: "666666"
+  - name: A1-needsburnin
+    description: Pull request needs to be tested on a live validator node before merge.
+    color: bfdadc
+  - name: A1-onice
+    description: ~
+    color: c7def8
+  - name: A2-insubstantial
+    description: ~
+    color: C6C7F8
+  - name: A3-inprogress
+    description: ~
+    color: DBC6F8
+  - name: A3-stale
+    description: ~
+    color: F2C5F8
+  - name: A4-awaitingci
+    description: ~
+    color: F8C5E7
+  - name: A4-clasignoffneeded
+    description: ~
+    color: F8C4D0
+  - name: A4-gotissues
+    description: ~
+    color: f9d0c4
+  - name: A5-grumble
+    description: ~
+    color: fcdfc3
+  - name: A6-mustntgrumble
+    description: ~
+    color: FFE9C0
+  - name: A6-revertrevert
+    description: ~
+    color: fef2c0
+  - name: A7-companion
+    description: A PR that should be considered alongside a (usually more comprehensive and detailed) Substrate PR
+    color: EEF8C0
+  - name: A7-looksgoodcantmerge
+    description: ~
+    color: EEF8C0
+  - name: A7-looksgoodtestsfail
+    description: ~
+    color: D6F2C0
+  - name: A8-backport
+    description: ~
+    color: C3EDC0
+  - name: A8-mergeoncegreen
+    description: ""
+    color: C0E7CC
+  - name: A9-buythatmanabeer
+    description: ~
+    color: BFE1D7
+  - name: A9-companion-backlog
+    description: A PR that must be merged when we update Cargo.lock to substrate master
+    color: "000000"
+  - name: A9-FUCKYEAH!
+    description: ~
+    color: bfdadc
+  - name: B0-silent
+    description: Item should not be mentioned in any change logs.
+    color: f9f0f4
+  - name: B1-releasenotes
+    description: ~
+    color: f9f0f4
+  - name: B7-runtimenoteworthy
+    description: "Item should be in both the client's changelog and the next runtime upgrade's description"
+    color: f9f0f4
+  - name: C1-low 📌
+    description: "Does not elevate a release containing this beyond \"low priority\"."
+    color: eeeeee
+  - name: C3-medium 📣
+    description: "Elevates a release containing this PR to \"medium priority\"."
+    color: eebb00
+  - name: C7-high ❗️
+    description: "Elevates a release containing this PR to \"high priority\"."
+    color: aa0000
+  - name: C9-critical ‼️
+    description: "Elevates a release containing this PR to \"critical priority\"."
+    color: "000000"
+  - name: D1-audited 👍
+    description: PR contains changes to fund-managing logic that has been properly reviewed and externally audited
+    color: "006600"
+  - name: D2-breaksapi
+    description: ~
+    color: ededed
+  - name: D2-notlive 💤
+    description: PR contains changes in a runtime directory that is not deployed to a chain that requires an audit.
+    color: 0052CC
+  - name: D3-trivial 🧸
+    description: PR contains trivial changes in a runtime directory that do not require an audit
+    color: FBCA04
+  - name: D5-nicetohaveaudit ⚠️
+    description: PR contains trivial changes to logic that should be properly reviewed.
+    color: aa6600
+  - name: D9-needsaudit 👮
+    description: PR contains changes to fund-managing logic that should be properly reviewed and externally audited
+    color: "880000"
+  - name: E0-patchthis
+    description: This PR changes public API; next release should be major
+    color: "222222"
+  - name: E1-runtimemigration
+    description: This pull request blocks the next release from happening. Use only in extreme cases.
+    color: "221133"
+  - name: E2-databasemigration
+    description: PR introduces code that does a one-way migration of the database.
+    color: "112233"
+  - name: E3-dependencies
+    description: Pull requests that update a dependency file
+    color: "222211"
+  - name: E4-newhostfunctions
+    description: PR adds new host functions which requires a node release before a runtime upgrade.
+    color: "223311"
+  - name: E5-breaksapi
+    description: This PR changes public API; next release should be major
+    color: "332200"
+  - name: E6-transactionversion
+    description: This PR alters existing meaning of dispatchables and will require a transaction_version bump
+    color: "442200"
+  - name: E7-breaksauthoring
+    description: This change breaks authorities or authoring code
+    color: "551100"
+  - name: E8-breakseverything
+    description: "This change breaks the underlying networking, sync or related and thus will cause a fork"
+    color: "660000"
+  - name: E9-blocker ⛔️
+    description: This pull request blocks the next release from happening. Use only in extreme cases.
+    color: aa0000
+  - name: F0-consensus
+    description: ~
+    color: "000000"
+  - name: F1-panic
+    description: ~
+    color: b10d11
+  - name: F1-security
+    description: ~
+    color: D62209
+  - name: F2-bug
+    description: ~
+    color: FB3701
+  - name: F3-annoyance
+    description: ~
+    color: F76E02
+  - name: F4-tests
+    description: ~
+    color: f3a603
+  - name: F5-documentation
+    description: ~
+    color: fbca04
+  - name: F5-task
+    description: ~
+    color: F2E204
+  - name: F6-refactor
+    description: ~
+    color: dbea04
+  - name: F7-footprint
+    description: ~
+    color: 34C302
+  - name: F7-optimisation
+    description: ~
+    color: 009B40
+  - name: F8-enhancement
+    description: ~
+    color: 006b75
+  - name: F9-meta
+    description: ~
+    color: 0C7BAD
+  - name: F9-release
+    description: ~
+    color: 0052cc
+  - name: M8-dapp
+    description: ~
+    color: F7EEFE
+  - name: M9-deploy
+    description: ~
+    color: ffeeff
+  - name: P0-dropeverything
+    description: ~
+    color: 32024c
+  - name: P2-asap
+    description: ~
+    color: 470c68
+  - name: P5-sometimesoon
+    description: ~
+    color: "673980"
+  - name: P7-nicetohave
+    description: ~
+    color: 856d92
+  - name: P9-somedaymaybe
+    description: ~
+    color: d2d1d3
+  - name: Q0-trivial
+    description: ~
+    color: ffffff
+  - name: Q1-mentor
+    description: ~
+    color: FDEFFB
+  - name: Q2-easy
+    description: ~
+    color: e8e0fc
+  - name: Q3-bounty
+    description: ~
+    color: DED2FA
+  - name: Q5-substantial
+    description: ~
+    color: d4c5f9
+  - name: Q7-involved
+    description: ~
+    color: 6849a7
+  - name: Q9-epic
+    description: ~
+    color: 2a0d73
+  - name: S1-Design
+    description: Issue is in the design stage
+    color: dd6e83
+  - name: S2-Implement
+    description: Issue is in the implementation stage
+    color: c9d7ff
+  - name: S3-Test/Monitor
+    description: Issue is in the testing stage
+    color: 3de2ca
+  - name: S4-Deploy
+    description: Issue is in the deployment stage
+    color: 6235c4
+  - name: T6-XCM
+    description: "Topic: XCM"
+    color: c5def5
+  - name: Z0-unconfirmed
+    description: ~
+    color: dedcd8
+  - name: Z1-question
+    description: ~
+    color: fff5fb
+  - name: Z3-stale
+    description: ~
+    color: fcFdf2
+  - name: Z5-intended
+    description: ~
+    color: f4fdfa
+  - name: Z7-duplicate
+    description: ~
+    color: f8fbf8
+  - name: Z8-wontfix
+    description: ~
+    color: f7f7fa
+  - name: Z9-invalid
+    description: ~
+    color: fcf3f8

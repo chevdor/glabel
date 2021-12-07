@@ -2,7 +2,12 @@
 
 ## Intro
 
-Utility to import/export Github labels.
+A utility to import (=`get`) and export (=`apply`) Github labels.
+
+## Install
+
+    cargo install --git https://github.com/chevdor/glabel --locked
+    glabel --help
 
 ## Usage
 
