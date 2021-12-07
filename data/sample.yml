@@ -1,0 +1,32 @@
+set:
+  name: Set #1
+  description: This is for you to know what the set is about
+
+config:
+  pattern: ^B\d$
+  overwrite: false # simply overwrite based on the first group of the pattern
+  migrate: true # do not overwrite but migrate to the new label, so create a new one, apply, remove the previous label
+
+  # Global validation
+  validation:
+    requires:
+      pattern:
+        - ^B\d$
+
+labels:
+  name: foo
+  description: Some label
+  color: 431232
+  options:
+    exclusive: true # requires the pattern to match a single one
+    pattern: ^B\d$ # pattern to find the label
+
+  # Validation for one label
+  validation:
+    requires:
+      one_of:
+        - B1
+        - B7
+        - B8
+      none_of:
+        pattern: ^B\d$
