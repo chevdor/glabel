@@ -9,7 +9,6 @@ pub struct Opts {
 	// /// Output as json
 	// #[clap(short, long, global = true)]
 	// pub json: bool,
-
 	#[clap(subcommand)]
 	pub subcmd: SubCommand,
 }
