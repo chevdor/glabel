@@ -79,8 +79,14 @@ async fn main() -> Result<(), Box<dyn Error>> {
 			log::info!("Loaded set {}", set.name);
 			// we then login with our write token
 
+			println!("Processing {} labels", set.labels.len());
+			println!("It should take around {:0.2} seconds", set.labels.len() as f32 / 3.6);
+			let mut i: usize = 0;
+			let max = set.labels.len();
 			// and write the labels
 			set.labels.iter().for_each(move |label| {
+				i += 1;
+
 				log::debug!("processing label = {:?}", label);
 				// TODO: add conversion from glabel label back to hubcaps labels
 				let label_options: LabelOptions = LabelOptions {
@@ -89,7 +95,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
 					description: label.description.clone().unwrap_or_default(),
 				};
 
-				println!("Processing {}...", label.name);
+				println!("Processing {:03}/{:03}: {}", i, max, label.name);
 				if !apply_opts.replace {
 					// Here we use the default behavior: if a label already
 					// exists, it won't be touched.
@@ -97,6 +103,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
 				} else {
 					// If replaced was passed and a label already exists, we replace it
 					let hit = labels.iter().find(|x| x.name == label.name);
+					// TODO: we could save a lot of time above by implementing PartialEq for Labels and NOT having to deal with Label already up to date.
 
 					if let Some(label) = hit {
 						let _ = block_on(gh_labels.update(&label.name, &label_options));
