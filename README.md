@@ -100,6 +100,9 @@ However, if you provide an output file, the yaml will be stored as:
     FLAGS:
         -h, --help       Print help information
         -j, --json       Output as json
+        -r, --replace    By default, existing labels will NOT be updated. If you set this flag to true,
+                         they will. Beware, there is no automatic backup so it could be a good idea to
+                         run the `get` command first and make a backup
         -V, --version    Print version information
 
     OPTIONS:

@@ -13,4 +13,3 @@ A utility to import (=`get`) and export (=`apply`) Github labels.
 == Usage
 
 include::doc/usage.adoc[]
-

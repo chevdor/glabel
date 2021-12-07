@@ -3,7 +3,7 @@ name: paritytech/polkadot
 description: Import from paritytech/polkadot
 labels:
   - name: A0-pleasereview
-    description: ~
+    description: This change is ready and is waiting for someone else to review it.
     color: "666666"
   - name: A1-needsburnin
     description: Pull request needs to be tested on a live validator node before merge.

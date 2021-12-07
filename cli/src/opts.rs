@@ -57,4 +57,11 @@ pub struct ApplyOpts {
 	/// an Environment variable.
 	#[clap(short, long, required = true, env = "TOKEN")]
 	pub token: String,
+
+	/// By default, existing labels will NOT be updated.
+	/// If you set this flag to true, they will. Beware, there is no
+	/// automatic backup so it could be a good idea to run the `get`
+	/// command first and make a backup.
+	#[clap(short, long)]
+	pub replace: bool,
 }
