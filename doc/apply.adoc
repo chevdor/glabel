@@ -1,4 +1,4 @@
-glabel-apply 0.0.2
+glabel-apply 0.0.3
 
 chevdor <chevdor@gmail.com>:Wilfried Kopp <wilfried@parity.io
 
