@@ -38,12 +38,24 @@ Utility to import/export Github labels.
 
 Without passing the `--output|-o` flags, the labels will be shown in your terminal as:
 
+     - bug                      [d73a4a]: Something isn't working
+     - documentation            [0075ca]: Improvements or additions to documentation
+     - duplicate                [cfd3d7]: This issue or pull request already exists
+     - enhancement              [a2eeef]: New feature or request
+     - good first issue         [7057ff]: Good for newcomers
+     - help wanted              [008672]: Extra attention is needed
      - invalid                  [e4e669]: This doesn't seem right
      - question                 [d876e3]: Further information is requested
      - wontfix                  [ffffff]: This will not be worked on
 
 However, if you provide an output file, the yaml will be stored as:
 
+    ---
+    name: chevdor/glabel
+    description: Import from chevdor/glabel
+    labels:
+      - name: bug
+        description: "Something isn't working"
         color: d73a4a
       - name: documentation
         description: Improvements or additions to documentation
