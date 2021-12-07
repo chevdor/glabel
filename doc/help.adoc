@@ -1,4 +1,4 @@
-glabel 0.0.1
+glabel 0.0.2
 
 
 

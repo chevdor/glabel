@@ -1,4 +1,4 @@
-glabel-apply 0.0.1
+glabel-apply 0.0.2
 
 
 

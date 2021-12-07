@@ -1,4 +1,4 @@
-glabel-get 0.0.1
+glabel-get 0.0.2
 
 
 
