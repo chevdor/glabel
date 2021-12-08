@@ -97,27 +97,30 @@ async fn main() -> Result<(), Box<dyn Error>> {
 				};
 
 				print!("Processing {:03}/{:03}: {: <24}\t", i, max, label.name);
-				if !apply_opts.replace {
-					// Here we use the default behavior: if a label already
-					// exists, it won't be touched.
+				let hit = labels.iter().find(|x| x.name == label.name);
+
+				if let Some(hit_label) = hit {
+					if hit_label != &label_options {
+						if apply_opts.replace {
+							if !apply_opts.dry_run {
+								let _ = block_on(gh_labels.update(&label.name, &label_options));
+								print!("{}updated{}", color::Fg(color::Yellow), style::Reset);
+							} else {
+								print!("{}updated [dry run]{}", color::Fg(color::Green), style::Reset);
+							}
+						} else {
+							print!("{}replace not allowed{}", color::Fg(color::Green), style::Reset);
+						}
+					} else {
+						print!("{}skipped, not needed{}", color::Fg(color::Cyan), style::Reset);
+					}
+				} else if !apply_opts.dry_run {
 					let _ = block_on(gh_labels.create(&label_options));
 					print!("{}created{}", color::Fg(color::Green), style::Reset);
 				} else {
-					// If replaced was passed and a label already exists, we replace it
-					let hit = labels.iter().find(|x| x.name == label.name);
-
-					if let Some(hit_label) = hit {
-						if hit_label != &label_options {
-							let _ = block_on(gh_labels.update(&label.name, &label_options));
-							print!("{}updated{}", color::Fg(color::Yellow), style::Reset);
-						} else {
-							print!("{}skipped{}", color::Fg(color::Cyan), style::Reset);
-						}
-					} else {
-						let _ = block_on(gh_labels.create(&label_options));
-						print!("{}created{}", color::Fg(color::Green), style::Reset);
-					}
+					print!("{}created [dry run]{}", color::Fg(color::Green), style::Reset);
 				}
+
 				println!();
 			})
 		}
@@ -139,6 +142,8 @@ async fn main() -> Result<(), Box<dyn Error>> {
 			labels.iter().for_each(|label| {
 				if wipe_opts.apply {
 					println!(" - Processing {: <24}\t{}Deleting{}", label.name, color::Fg(color::Red), style::Reset);
+
+					// TODO: Check if the label is in use
 					let _ = block_on(gh_labels.delete(&label.name));
 				} else {
 					println!(" - Processing {: <24}\t{}Dry run{}", label.name, color::Fg(color::Green), style::Reset);

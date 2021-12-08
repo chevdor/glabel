@@ -67,6 +67,10 @@ pub struct ApplyOpts {
 	/// command first and make a backup.
 	#[clap(short, long)]
 	pub replace: bool,
+
+	/// Do not change anything, print only what will be done.
+	#[clap(short, long)]
+	pub dry_run: bool,
 }
 
 #[cfg(feature = "wipe")]
