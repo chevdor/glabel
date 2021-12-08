@@ -12,13 +12,13 @@ labels:
     description: ~
     color: c7def8
   - name: A2-insubstantial
-    description: ~
+    description:
     color: C6C7F8
   - name: A3-inprogress
-    description: ~
+    description:
     color: DBC6F8
   - name: A3-stale
-    description: ~
+    description:
     color: F2C5F8
   - name: A4-awaitingci
     description: ~
@@ -144,10 +144,10 @@ labels:
     description: ~
     color: FB3701
   - name: F3-annoyance
-    description: ~
+    description: dd
     color: F76E02
   - name: F4-tests
-    description: ~
+    description: dd
     color: f3a603
   - name: F5-documentation
     description: ~

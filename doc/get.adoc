@@ -1,4 +1,4 @@
-glabel-get 0.0.3
+glabel-get 0.0.4
 
 chevdor <chevdor@gmail.com>:Wilfried Kopp <wilfried@parity.io
 

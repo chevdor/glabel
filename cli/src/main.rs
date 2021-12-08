@@ -13,6 +13,7 @@ use std::fs::File;
 use std::io::prelude::*;
 use std::str::FromStr;
 use std::{env, fs};
+use termion::{color, style};
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {
@@ -95,7 +96,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
 					description: label.description.clone().unwrap_or_default(),
 				};
 
-				println!("Processing {:03}/{:03}: {}", i, max, label.name);
+				print!("Processing {:03}/{:03}: {: <24}\t", i, max, label.name);
 				if !apply_opts.replace {
 					// Here we use the default behavior: if a label already
 					// exists, it won't be touched.
@@ -103,13 +104,19 @@ async fn main() -> Result<(), Box<dyn Error>> {
 				} else {
 					// If replaced was passed and a label already exists, we replace it
 					let hit = labels.iter().find(|x| x.name == label.name);
-					// TODO: we could save a lot of time above by implementing PartialEq for Labels and NOT having to deal with Label already up to date.
 
-					if let Some(label) = hit {
-						let _ = block_on(gh_labels.update(&label.name, &label_options));
+					if let Some(hit_label) = hit {
+						if hit_label != &label_options {
+							let _ = block_on(gh_labels.update(&label.name, &label_options));
+							print!("{}updated{}", color::Fg(color::Yellow), style::Reset);
+						} else {
+							print!("{}skipped{}", color::Fg(color::Cyan), style::Reset);
+						}
 					} else {
 						let _ = block_on(gh_labels.create(&label_options));
+						print!("{}created{}", color::Fg(color::Green), style::Reset);
 					}
+					println!();
 				}
 			})
 		}
