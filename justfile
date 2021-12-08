@@ -22,6 +22,7 @@ _usage:
 	SAVE=$TOKEN
 	export TOKEN="<your admin token>"
 	cargo run -q -- apply --help > doc/apply.adoc
+	cargo run -q --features=wipe -- wipe --help > doc/wipe.adoc
 	export TOKEN=$SAVE
 	cargo run -q -- get chevdor/glabel > doc/sample_terminal.txt
 	cargo run -q -- get chevdor/glabel -o doc/sample_yaml.yaml

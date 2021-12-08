@@ -9,6 +9,8 @@ A utility to import (=`get`) and export (=`apply`) Github labels.
     cargo install --git https://github.com/chevdor/glabel --locked
     glabel --help
 
+You may also enable the `wipe` feature but bare in mind that it comes with a rather high risk unless you know well what you are doing.
+
 ## Usage
 
 ### Help
@@ -100,6 +102,30 @@ However, if you provide an output file, the yaml will be stored as:
         -r, --replace    By default, existing labels will NOT be updated. If you set this flag to true,
                          they will. Beware, there is no automatic backup so it could be a good idea to
                          run the `get` command first and make a backup
+        -V, --version    Print version information
+
+    OPTIONS:
+        -t, --token <TOKEN>    If you follow good security practices, your GITHUB_TOKEN should not have
+                               write access to your repos. Here since we need to write labels, we use
+                               another variable for the token with write access. It is highly
+                               recommended to pass this as an Environment variable [env: TOKEN=<your
+                               admin token>]
+
+### Wipe
+
+    USAGE:
+        glabel wipe [FLAGS] --token <TOKEN> <REPOSITORY>
+
+    ARGS:
+        <REPOSITORY>    The repo string for now in the form owner/repo such as chevdor/foobar
+
+    FLAGS:
+        -a, --apply      By default, for your safety, the command will NOT do anything. If you however
+                         pass this flag, there will be no way back :) It is highly recommended to call
+                         `get` first and backup your labels but keep in mind that it does not save which
+                         labels are applied to PRs and issues. So if you have labels "in use", you will
+                         lose them
+        -h, --help       Print help information
         -V, --version    Print version information
 
     OPTIONS:

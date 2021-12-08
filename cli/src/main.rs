@@ -81,7 +81,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
 			// we then login with our write token
 
 			println!("Processing {} labels", set.labels.len());
-			println!("It should take around {:0.2} seconds", set.labels.len() as f32 / 3.6);
+			println!("It should take around {:0.2} seconds or less", set.labels.len() as f32 / 3.6);
 			let mut i: usize = 0;
 			let max = set.labels.len();
 			// and write the labels
@@ -101,6 +101,7 @@ async fn main() -> Result<(), Box<dyn Error>> {
 					// Here we use the default behavior: if a label already
 					// exists, it won't be touched.
 					let _ = block_on(gh_labels.create(&label_options));
+					print!("{}created{}", color::Fg(color::Green), style::Reset);
 				} else {
 					// If replaced was passed and a label already exists, we replace it
 					let hit = labels.iter().find(|x| x.name == label.name);
@@ -116,9 +117,33 @@ async fn main() -> Result<(), Box<dyn Error>> {
 						let _ = block_on(gh_labels.create(&label_options));
 						print!("{}created{}", color::Fg(color::Green), style::Reset);
 					}
-					println!();
 				}
+				println!();
 			})
+		}
+
+		#[cfg(feature = "wipe")]
+		SubCommand::Wipe(wipe_opts) => {
+			log::debug!("wipe: {:#?}", wipe_opts);
+
+			let repo = Repo::from_str(&wipe_opts.repository).unwrap();
+			let token = env::var("GITHUB_TOKEN").unwrap_or_default();
+			log::debug!("TOKEN: {}", if !token.is_empty() { "SET" } else { "NOT SET " });
+
+			let github = Github::new(String::from("glabel"), Credentials::Token(token))?;
+			let gh_repo = github.repo(repo.owner, repo.repository);
+			let labels = gh_repo.labels().iter().map(|label| Label::from(label.unwrap())).collect::<Vec<_>>().await;
+			let gh_labels = gh_repo.labels();
+
+			println!("Deleting {} label(s) from {}", labels.len(), wipe_opts.repository);
+			labels.iter().for_each(|label| {
+				if wipe_opts.apply {
+					println!(" - Processing {: <24}\t{}Deleting{}", label.name, color::Fg(color::Red), style::Reset);
+					let _ = block_on(gh_labels.delete(&label.name));
+				} else {
+					println!(" - Processing {: <24}\t{}Dry run{}", label.name, color::Fg(color::Green), style::Reset);
+				}
+			});
 		}
 	};
 

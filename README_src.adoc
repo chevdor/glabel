@@ -10,6 +10,8 @@ A utility to import (=`get`) and export (=`apply`) Github labels.
     cargo install --git https://github.com/chevdor/glabel --locked
     glabel --help
 
+You may also enable the `wipe` feature but bare in mind that it comes with a rather high risk unless you know well what you are doing.
+
 == Usage
 
 include::doc/usage.adoc[]
