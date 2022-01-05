@@ -13,8 +13,7 @@ pub struct Opts {
 }
 
 /// You can find all available commands below.
-#[derive(Debug)]
-#[derive(Subcommand)]
+#[derive(Debug, Subcommand)]
 pub enum SubCommand {
 	#[clap(version = crate_version!(), author = crate_authors!())]
 	Get(GetOpts),
@@ -28,8 +27,7 @@ pub enum SubCommand {
 }
 
 /// Get/download labels from a given repository.
-#[derive(Debug)]
-#[derive(Parser)]
+#[derive(Debug, Parser)]
 pub struct GetOpts {
 	/// The repo string for now in the form owner/repo such as chevdor/foobar
 	#[clap(required = true, index = 1)]
@@ -41,8 +39,7 @@ pub struct GetOpts {
 }
 
 /// Apply a label set from a given file.
-#[derive(Debug)]
-#[derive(Parser)]
+#[derive(Debug, Parser)]
 pub struct ApplyOpts {
 	/// The repo string for now in the form owner/repo such as chevdor/foobar
 	#[clap(required = true, index = 1)]
