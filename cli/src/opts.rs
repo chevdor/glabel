@@ -1,10 +1,9 @@
-use clap::{crate_authors, crate_version, AppSettings, Clap};
+use clap::{crate_authors, crate_version, Parser, Subcommand};
 use std::path::PathBuf;
 
 /// This utility allows fetching, apply and validating github labels
-#[derive(Clap)]
+#[derive(Parser)]
 #[clap(version = crate_version!(), author = crate_authors!())]
-#[clap(setting = AppSettings::ColoredHelp)]
 pub struct Opts {
 	// /// Output as json
 	// #[clap(short, long, global = true)]
@@ -14,8 +13,8 @@ pub struct Opts {
 }
 
 /// You can find all available commands below.
-#[derive(Debug, Clap)]
-#[clap(setting = AppSettings::ColoredHelp)]
+#[derive(Debug)]
+#[derive(Subcommand)]
 pub enum SubCommand {
 	#[clap(version = crate_version!(), author = crate_authors!())]
 	Get(GetOpts),
@@ -29,8 +28,8 @@ pub enum SubCommand {
 }
 
 /// Get/download labels from a given repository.
-#[derive(Debug, Clap)]
-#[clap(setting = AppSettings::ColoredHelp)]
+#[derive(Debug)]
+#[derive(Parser)]
 pub struct GetOpts {
 	/// The repo string for now in the form owner/repo such as chevdor/foobar
 	#[clap(required = true, index = 1)]
@@ -42,8 +41,8 @@ pub struct GetOpts {
 }
 
 /// Apply a label set from a given file.
-#[derive(Debug, Clap)]
-#[clap(setting = AppSettings::ColoredHelp)]
+#[derive(Debug)]
+#[derive(Parser)]
 pub struct ApplyOpts {
 	/// The repo string for now in the form owner/repo such as chevdor/foobar
 	#[clap(required = true, index = 1)]
@@ -78,8 +77,7 @@ pub struct ApplyOpts {
 /// command, this is why should consider twice before using it.
 /// If **some** labels are used in your issues, PRs, you probably
 /// should NOT be doing a wipe.
-#[derive(Debug, Clap)]
-#[clap(setting = AppSettings::ColoredHelp)]
+#[derive(Parser)]
 pub struct WipeOpts {
 	/// The repo string for now in the form owner/repo such as chevdor/foobar
 	#[clap(required = true, index = 1)]

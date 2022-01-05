@@ -1,5 +1,5 @@
 mod opts;
-use clap::{crate_name, crate_version, Clap};
+use clap::{crate_name, crate_version, StructOpt};
 use env_logger::Env;
 use futures::executor::block_on;
 use futures::prelude::*;
@@ -72,6 +72,17 @@ async fn main() -> Result<(), Box<dyn Error>> {
 			let labels = gh_repo.labels().iter().map(|label| Label::from(label.unwrap())).collect::<Vec<_>>().await;
 
 			let gh_labels = gh_repo.labels();
+
+			// Tests to find all PRs incl. labels, in a repo
+			// github
+			// 	.search()
+			// 	.issues()
+			// 	.iter("user:softprops", &SearchIssuesOptions::builder().per_page(100).build())
+			// 	.try_for_each(|issue| async move {
+			// 		println!("{} {:?}", issue.title, issue.pull_request);
+			// 		Ok(())
+			// 	})
+			// 	.await?;
 
 			// first we need to load the set and deserialize it
 			let set_file = apply_opts.input;
