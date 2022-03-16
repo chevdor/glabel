@@ -74,7 +74,7 @@ pub struct ApplyOpts {
 /// command, this is why should consider twice before using it.
 /// If **some** labels are used in your issues, PRs, you probably
 /// should NOT be doing a wipe.
-#[derive(Parser)]
+#[derive(Parser, Debug)]
 pub struct WipeOpts {
 	/// The repo string for now in the form owner/repo such as chevdor/foobar
 	#[clap(required = true, index = 1)]
