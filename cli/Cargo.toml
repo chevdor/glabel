@@ -15,7 +15,7 @@ assert_cmd = "2.0"
 clap = { version = "3.0", features = ["derive", "env", "unicode", "cargo"] }
 env_logger = "0.9"
 futures = "0.3"
-glabellib = { version = "0.0.5", path = "../lib" }
+glabellib = { version = "0.0", path = "../lib" }
 hubcaps = "0.6"
 log = "0.4"
 serde = "1.0"
