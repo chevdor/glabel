@@ -4,7 +4,7 @@ edition = "2021"
 license = "MIT"
 name = "glabellib"
 repository = "https://github.com/chevdor/glabel"
-version = "0.0.5"
+version = "0.0.6"
 
 [dependencies]
 env_logger = "0.9"
