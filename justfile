@@ -77,3 +77,26 @@ tag:
 tera:
     #!/usr/bin/env bash
     tera --template templates/doc.md.tera doc/sample_yaml.yaml
+
+build:
+	cargo  build --profile release --locked --features "wipe"
+	mv ./target/release/glabel ./target/release/glabel-wipe
+	cargo  build --profile release --locked --features ""
+
+sha256:
+	#!/usr/bin/env bash
+	for file in $( find ./target/release -d 1 -type f -exec test -x {} \; -print ); do
+		echo Creating sha256 for $file
+		shasum -a 256 $file > $file.sha256
+		shasum -c $file.sha256
+	done
+
+sign:
+	#!/usr/bin/env bash
+	for file in $( find ./target/release -d 1 -type f -exec test -x {} \; -print ); do
+		echo Signing binaries, get your Yubikey ready
+		gpg --sign --default-key $KEY --armor --output $file.asc --detach-sig $file
+		gpg --verify $file.asc
+	done
+
+build_sha256_and_sign: build sha256 sign
