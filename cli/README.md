@@ -15,10 +15,7 @@ You may also enable the `wipe` feature but bare in mind that it comes with a rat
 
 ### Help
 
-    USAGE:
-        glabel <SUBCOMMAND>
-
-    FLAGS:
+    OPTIONS:
         -h, --help       Print help information
         -V, --version    Print version information
 
@@ -29,30 +26,15 @@ You may also enable the `wipe` feature but bare in mind that it comes with a rat
 
 ### Get
 
-    USAGE:
-        glabel get [OPTIONS] <REPOSITORY>
-
     ARGS:
         <REPOSITORY>    The repo string for now in the form owner/repo such as chevdor/foobar
 
-    FLAGS:
-        -h, --help       Print help information
-        -V, --version    Print version information
-
     OPTIONS:
+        -h, --help               Print help information
         -o, --output <OUTPUT>    The output filename
+        -V, --version            Print version information
 
 Without passing the `--output|-o` flags, the labels will be shown in your terminal as:
-
-     - bug                      [d73a4a]: Something isn't working
-     - documentation            [0075ca]: Improvements or additions to documentation
-     - duplicate                [cfd3d7]: This issue or pull request already exists
-     - enhancement              [a2eeef]: New feature or request
-     - good first issue         [7057ff]: Good for newcomers
-     - help wanted              [008672]: Extra attention is needed
-     - invalid                  [e4e669]: This doesn't seem right
-     - question                 [d876e3]: Further information is requested
-     - wontfix                  [ffffff]: This will not be worked on
 
 However, if you provide an output file, the yaml will be stored as:
 
@@ -90,50 +72,43 @@ However, if you provide an output file, the yaml will be stored as:
 
 ### Apply
 
-    USAGE:
-        glabel apply [FLAGS] --token <TOKEN> <REPOSITORY> <INPUT>
-
     ARGS:
         <REPOSITORY>    The repo string for now in the form owner/repo such as chevdor/foobar
         <INPUT>         The filename where your set is stored
 
-    FLAGS:
-        -h, --help       Print help information
-        -r, --replace    By default, existing labels will NOT be updated. If you set this flag to true,
-                         they will. Beware, there is no automatic backup so it could be a good idea to
-                         run the `get` command first and make a backup
-        -V, --version    Print version information
-
     OPTIONS:
+        -d, --dry-run          Do not change anything, print only what will be done
+        -h, --help             Print help information
+        -r, --replace          By default, existing labels will NOT be updated. If you set this flag to
+                               true, they will. Beware, there is no automatic backup so it could be a
+                               good idea to run the `get` command first and make a backup
         -t, --token <TOKEN>    If you follow good security practices, your GITHUB_TOKEN should not have
                                write access to your repos. Here since we need to write labels, we use
                                another variable for the token with write access. It is highly
                                recommended to pass this as an Environment variable [env: TOKEN=<your
                                admin token>]
+        -V, --version          Print version information
 
 ### Wipe
 
-    USAGE:
-        glabel wipe [FLAGS] --token <TOKEN> <REPOSITORY>
+        glabel wipe [OPTIONS] --token <TOKEN> <REPOSITORY>
 
     ARGS:
         <REPOSITORY>    The repo string for now in the form owner/repo such as chevdor/foobar
 
-    FLAGS:
-        -a, --apply      By default, for your safety, the command will NOT do anything. If you however
-                         pass this flag, there will be no way back :) It is highly recommended to call
-                         `get` first and backup your labels but keep in mind that it does not save which
-                         labels are applied to PRs and issues. So if you have labels "in use", you will
-                         lose them
-        -h, --help       Print help information
-        -V, --version    Print version information
-
     OPTIONS:
+        -a, --apply            By default, for your safety, the command will NOT do anything. If you
+                               however pass this flag, there will be no way back :) It is highly
+                               recommended to call `get` first and backup your labels but keep in mind
+                               that it does not save which labels are applied to PRs and issues. So if
+                               you have labels "in use", you will lose them
+        -h, --help             Print help information
         -t, --token <TOKEN>    If you follow good security practices, your GITHUB_TOKEN should not have
                                write access to your repos. Here since we need to write labels, we use
                                another variable for the token with write access. It is highly
                                recommended to pass this as an Environment variable [env: TOKEN=<your
                                admin token>]
+        -V, --version          Print version information
 
 ### Documentation
 

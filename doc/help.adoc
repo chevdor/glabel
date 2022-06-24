@@ -1,13 +1,11 @@
-glabel 0.0.4
-
+glabel 0.0.5
 chevdor <chevdor@gmail.com>:Wilfried Kopp <wilfried@parity.io
-
-You can find all available commands below
+This utility allows fetching, apply and validating github labels
 
 USAGE:
     glabel <SUBCOMMAND>
 
-FLAGS:
+OPTIONS:
     -h, --help       Print help information
     -V, --version    Print version information
 

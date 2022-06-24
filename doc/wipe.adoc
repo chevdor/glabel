@@ -1,29 +1,25 @@
-glabel-wipe 0.0.4
-
+glabel-wipe 0.0.5
 chevdor <chevdor@gmail.com>:Wilfried Kopp <wilfried@parity.io
-
 Allows wiping all labels in a repo. Definitely not a safe command, this is why should consider twice
 before using it. If **some** labels are used in your issues, PRs, you probably should NOT be doing a
 wipe
 
 USAGE:
-    glabel wipe [FLAGS] --token <TOKEN> <REPOSITORY>
+    glabel wipe [OPTIONS] --token <TOKEN> <REPOSITORY>
 
 ARGS:
     <REPOSITORY>    The repo string for now in the form owner/repo such as chevdor/foobar
 
-FLAGS:
-    -a, --apply      By default, for your safety, the command will NOT do anything. If you however
-                     pass this flag, there will be no way back :) It is highly recommended to call
-                     `get` first and backup your labels but keep in mind that it does not save which
-                     labels are applied to PRs and issues. So if you have labels "in use", you will
-                     lose them
-    -h, --help       Print help information
-    -V, --version    Print version information
-
 OPTIONS:
+    -a, --apply            By default, for your safety, the command will NOT do anything. If you
+                           however pass this flag, there will be no way back :) It is highly
+                           recommended to call `get` first and backup your labels but keep in mind
+                           that it does not save which labels are applied to PRs and issues. So if
+                           you have labels "in use", you will lose them
+    -h, --help             Print help information
     -t, --token <TOKEN>    If you follow good security practices, your GITHUB_TOKEN should not have
                            write access to your repos. Here since we need to write labels, we use
                            another variable for the token with write access. It is highly
                            recommended to pass this as an Environment variable [env: TOKEN=<your
                            admin token>]
+    -V, --version          Print version information

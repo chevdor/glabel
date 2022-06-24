@@ -1,7 +1,5 @@
-glabel-get 0.0.4
-
+glabel-get 0.0.5
 chevdor <chevdor@gmail.com>:Wilfried Kopp <wilfried@parity.io
-
 Get/download labels from a given repository
 
 USAGE:
@@ -10,9 +8,7 @@ USAGE:
 ARGS:
     <REPOSITORY>    The repo string for now in the form owner/repo such as chevdor/foobar
 
-FLAGS:
-    -h, --help       Print help information
-    -V, --version    Print version information
-
 OPTIONS:
+    -h, --help               Print help information
     -o, --output <OUTPUT>    The output filename
+    -V, --version            Print version information

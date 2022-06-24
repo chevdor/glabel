@@ -4,11 +4,11 @@ edition = "2021"
 license = "MIT"
 name = "glabellib"
 repository = "https://github.com/chevdor/glabel"
-version = "0.0.4"
+version = "0.0.5"
 
 [dependencies]
 env_logger = "0.9"
-hubcaps = "0.6.2"
+hubcaps = "0.6"
 log = "0.4"
 serde = "1.0"
 serde_yaml = {version = "0.8", optional = false}
