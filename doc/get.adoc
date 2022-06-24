@@ -1,4 +1,4 @@
-glabel-get 0.0.5
+glabel-get 0.0.6
 chevdor <chevdor@gmail.com>:Wilfried Kopp <wilfried@parity.io
 Get/download labels from a given repository
 

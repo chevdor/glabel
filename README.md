@@ -36,6 +36,16 @@ You may also enable the `wipe` feature but bare in mind that it comes with a rat
 
 Without passing the `--output|-o` flags, the labels will be shown in your terminal as:
 
+     - bug                      [d73a4a]: Something isn't working
+     - documentation            [0075ca]: Improvements or additions to documentation
+     - duplicate                [cfd3d7]: This issue or pull request already exists
+     - enhancement              [a2eeef]: New feature or request
+     - good first issue         [7057ff]: Good for newcomers
+     - help wanted              [008672]: Extra attention is needed
+     - invalid                  [e4e669]: This doesn't seem right
+     - question                 [d876e3]: Further information is requested
+     - wontfix                  [ffffff]: This will not be worked on
+
 However, if you provide an output file, the yaml will be stored as:
 
     ---
@@ -133,3 +143,32 @@ Will generate the following output:
     - `invalid`: *This doesn't seem right*
     - `question`: *Further information is requested*
     - `wontfix`: *This will not be worked on*
+
+## Doc generation using tera
+
+After installing \[tera\](<https://github.com/chevdor/tera-cli>), you can use a simple template such as the one provided below in order to generate a nice markdown documentation of your labels:
+
+First setup the repo to work on:
+
+    REPO=chevdor/glabel
+
+Use glabel to get all the labels:
+
+    glabel get -o data.yaml $REPO
+
+Create the following template as `template.md.tera`:
+
+    # Github labels for {{ name }}
+
+    ## Description
+
+    {{ description }}
+
+    ## List of the labels:
+    {% for label in labels %}
+    - `{{ label.name }}`: {{ label.description }}
+    {%- endfor %}
+
+Finally apply the template:
+
+    tera -t template.md.tera data.yaml > doc.md

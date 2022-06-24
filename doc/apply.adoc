@@ -1,4 +1,4 @@
-glabel-apply 0.0.5
+glabel-apply 0.0.6
 chevdor <chevdor@gmail.com>:Wilfried Kopp <wilfried@parity.io
 Apply a label set from a given file
 

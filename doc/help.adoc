@@ -1,4 +1,4 @@
-glabel 0.0.5
+glabel 0.0.6
 chevdor <chevdor@gmail.com>:Wilfried Kopp <wilfried@parity.io
 This utility allows fetching, apply and validating github labels
 

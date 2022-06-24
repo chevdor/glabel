@@ -1,4 +1,4 @@
-glabel-wipe 0.0.5
+glabel-wipe 0.0.6
 chevdor <chevdor@gmail.com>:Wilfried Kopp <wilfried@parity.io
 Allows wiping all labels in a repo. Definitely not a safe command, this is why should consider twice
 before using it. If **some** labels are used in your issues, PRs, you probably should NOT be doing a

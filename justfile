@@ -85,7 +85,8 @@ build:
 
 sha256:
 	#!/usr/bin/env bash
-	for file in $( find ./target/release -d 1 -type f -exec test -x {} \; -print ); do
+	cd target/release
+	for file in $( find . -d 1 -type f -exec test -x {} \; -print ); do
 		echo Creating sha256 for $file
 		shasum -a 256 $file > $file.sha256
 		shasum -c $file.sha256

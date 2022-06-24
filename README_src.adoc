@@ -15,3 +15,36 @@ You may also enable the `wipe` feature but bare in mind that it comes with a rat
 == Usage
 
 include::doc/usage.adoc[]
+
+== Doc generation using tera
+
+After installing [tera](https://github.com/chevdor/tera-cli), you can use a simple template such as the one provided below in order to generate a nice markdown documentation of your labels:
+
+First setup the repo to work on:
+
+    REPO=chevdor/glabel
+
+Use glabel to get all the labels:
+
+    glabel get -o data.yaml $REPO
+
+Create the following template as `template.md.tera`:
+
+[source,jinja]
+----
+# Github labels for {{ name }}
+
+## Description
+
+{{ description }}
+
+## List of the labels:
+{% for label in labels %}
+- `{{ label.name }}`: {{ label.description }}
+{%- endfor %}
+----
+
+Finally apply the template:
+
+    tera -t template.md.tera data.yaml > doc.md
+
