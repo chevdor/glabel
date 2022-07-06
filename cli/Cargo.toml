@@ -11,8 +11,7 @@ repository = "https://github.com/chevdor/glabel"
 version = "0.0.6"
 
 [dependencies]
-assert_cmd = "2.0"
-clap = { version = "3.0", features = ["derive", "env", "unicode", "cargo"] }
+clap = { version = "3.2", features = ["derive", "env", "unicode", "cargo"] }
 env_logger = "0.9"
 futures = "0.3"
 glabellib = { version = "0.0", path = "../lib" }
