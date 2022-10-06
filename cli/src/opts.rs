@@ -34,7 +34,7 @@ pub struct GetOpts {
 	pub repository: String,
 
 	/// The output filename
-	#[clap(short, long, alias("out"), parse(from_os_str))]
+	#[clap(short, long, alias("out"))]
 	pub output: Option<PathBuf>,
 }
 
@@ -46,7 +46,7 @@ pub struct ApplyOpts {
 	pub repository: String,
 
 	/// The filename where your set is stored
-	#[clap(required = true, parse(from_os_str), index = 2)]
+	#[clap(required = true, index = 2)]
 	pub input: PathBuf,
 
 	/// If you follow good security practices, your GITHUB_TOKEN
