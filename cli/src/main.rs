@@ -1,18 +1,12 @@
 mod opts;
 use clap::{crate_name, crate_version, Parser};
 use env_logger::Env;
-use futures::executor::block_on;
-use futures::prelude::*;
-use glabellib::label::Label;
-use glabellib::repo::*;
-use glabellib::set::Set;
+use futures::{executor::block_on, prelude::*};
+use glabellib::{label::Label, repo::*, set::Set};
 use hubcaps::{labels::*, Credentials, Github};
 use opts::*;
 use std::error::Error;
-use std::fs::File;
-use std::io::prelude::*;
-use std::str::FromStr;
-use std::{env, fs};
+use std::{fs::{File, self}, io::prelude::*, str::FromStr, env};
 use termion::{color, style};
 
 #[tokio::main]
