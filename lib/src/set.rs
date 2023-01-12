@@ -23,6 +23,6 @@ mod test_set {
 	fn test_serialize() {
 		let set = Set::new("test", None, Vec::new());
 		let yml = serde_yaml::to_string(&set).unwrap();
-		println!("{}", yml);
+		println!("{yml}");
 	}
 }

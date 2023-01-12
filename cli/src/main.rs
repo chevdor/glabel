@@ -6,7 +6,12 @@ use glabellib::{label::Label, repo::*, set::Set};
 use hubcaps::{labels::*, Credentials, Github};
 use opts::*;
 use std::error::Error;
-use std::{fs::{File, self}, io::prelude::*, str::FromStr, env};
+use std::{
+	env,
+	fs::{self, File},
+	io::prelude::*,
+	str::FromStr,
+};
 use termion::{color, style};
 
 #[tokio::main]
