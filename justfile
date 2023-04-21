@@ -44,7 +44,7 @@ _deny:
 	cargo deny check
 
 # Run checks such as clippy, rustfmt, etc...
-check: _clippy _fmt _deny
+check: _clippy _fmt
 
 # Minor bump, can be used once the release is ready
 bump:

@@ -1,14 +1,11 @@
-glabel-get 0.0.6
-chevdor <chevdor@gmail.com>:Wilfried Kopp <wilfried@parity.io
 Get/download labels from a given repository
 
-USAGE:
-    glabel get [OPTIONS] <REPOSITORY>
+Usage: glabel get [OPTIONS] <REPOSITORY>
 
-ARGS:
-    <REPOSITORY>    The repo string for now in the form owner/repo such as chevdor/foobar
+Arguments:
+  <REPOSITORY>  The repo string for now in the form owner/repo such as chevdor/foobar
 
-OPTIONS:
-    -h, --help               Print help information
-    -o, --output <OUTPUT>    The output filename
-    -V, --version            Print version information
+Options:
+  -o, --output <OUTPUT>  The output filename
+  -h, --help             Print help
+  -V, --version          Print version
